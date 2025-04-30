@@ -1,0 +1,39 @@
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  background-color: black;
+  color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+
+.container > button {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  color: inherit;
+  background-color: inherit;
+  margin-right: 10px;
+}
+
+
+.divcontainer {
+  max-width: 1080px;
+  margin: 0 auto;
+  background-color:purple;
+  /* color: #fff; */
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: -1.5rem;
+}
+
+.textColor {
+  color:  yellow;
+}
+
+.bgColor {
+  background-color: blue;
+}

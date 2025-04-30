@@ -1,0 +1,13 @@
+
+
+<div class="container" [ngClass]="{container:ischangeContainerBg}">
+  <div class="header">
+    <h3><a href={{testimony.name}}>{{testimony.name}}</a></h3>
+  </div>
+
+  <div class="paragraph" [ngClass]="{changeTextToBlack:ischangeContainerBg}">
+    <h4>{{testimony.rep}}</h4>
+    <p>{{testimony.description}}.</p>
+  </div>
+
+</div>

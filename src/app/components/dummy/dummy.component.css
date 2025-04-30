@@ -1,0 +1,12 @@
+
+
+.container {
+  margin: 0 auto;
+  max-width: 1080px;
+  background-color: chartreuse;
+  margin-top: 5rem;
+}
+
+.form {
+  padding: 20px;
+}

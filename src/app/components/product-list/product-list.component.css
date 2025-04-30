@@ -1,0 +1,15 @@
+.container {
+  margin: 0 auto;
+  max-width: 1080px;
+  display: flex;
+}
+
+
+.container > div {
+  padding-left: 80px;
+}
+
+.bgColour {
+  background-color: blueviolet;
+}
+

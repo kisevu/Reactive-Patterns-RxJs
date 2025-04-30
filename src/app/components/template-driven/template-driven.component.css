@@ -1,0 +1,17 @@
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: blue;
+}
+
+.field > input {
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.form > button {
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 20px;
+}

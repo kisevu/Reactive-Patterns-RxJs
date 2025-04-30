@@ -1,0 +1,17 @@
+
+
+<div class="container">
+<h3>Working With Two way binding with ngModel...</h3>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="form">
+  <div class="field">
+    <label for="name">Name</label>
+    <input type="text"
+    id="name"
+    name="name"
+    placeholder="Enter your name user!"
+    [formControl]="name">
+  </div>
+  <button type="submit">submit</button>
+</form>
+</div>

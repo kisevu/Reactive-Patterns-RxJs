@@ -1,0 +1,10 @@
+<div class="container">
+
+    @for (prod of products; track $index) {
+      <div>
+        <app-product [product]="prod" (cardClicked)="clickHighlight($event)"></app-product>
+      </div>
+      }
+</div>
+
+

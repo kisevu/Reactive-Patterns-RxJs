@@ -1,0 +1,29 @@
+
+
+.container {
+  max-width: 1700px;
+  background-color: black;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-top: 50px;
+  width: auto;
+  color: #fff;
+}
+
+
+.image-container > img {
+  width: 30%;
+  height: 30%;
+  object-fit: contain;
+}
+
+.image-container {
+  display: flex;
+}
+
+.image-container > img + * {
+  background-color: inherit;
+}

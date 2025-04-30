@@ -1,0 +1,10 @@
+
+<div class="container">
+  <ul class="menu">
+    @for (navigation of navigationList; track $index) {
+      <li>
+          <app-navigation [navigation]="navigation" (clickedMenu)="whenMenuClicked($event)"></app-navigation>
+      </li>
+    }
+  </ul>
+</div>

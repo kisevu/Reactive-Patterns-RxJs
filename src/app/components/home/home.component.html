@@ -1,0 +1,52 @@
+<div class="kevin mx-3 w-80">
+  <div class="bg-dark text-white p-4 w-25 ms-2">
+    <h1 class="float-lg-end px-3">Home Component</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam exercitationem quos commodi odio enim nostrum,
+      cumque delectus dolorem numquam,
+      praesentium maxime voluptates id provident quibusdam sapiente consequatur alias non reprehenderit.</p>
+  </div>
+
+  <div class="bg-dark text-white p-4 w-25 ms-2">
+    <h1 class="float-lg-end px-3">About Component</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam exercitationem quos commodi odio enim nostrum,
+      cumque delectus dolorem numquam,
+      praesentium maxime voluptates id provident quibusdam sapiente consequatur alias non reprehenderit.</p>
+  </div>
+
+  <div class="bg-dark text-white p-4 w-30 ms-2">
+    <h1>Contact Component</h1>
+    <div class="btn-close"></div>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam exercitationem quos commodi odio enim nostrum,
+      cumque delectus dolorem numquam,
+      praesentium maxime voluptates id provident quibusdam sapiente consequatur alias non reprehenderit.</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam exercitationem quos commodi odio enim nostrum,
+      cumque delectus dolorem numquam,
+      praesentium maxime voluptates id provident quibusdam sapiente consequatur alias non reprehenderit.</p>
+       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam exercitationem quos commodi odio enim nostrum,
+      cumque delectus dolorem numquam,
+      praesentium maxime voluptates id provident quibusdam sapiente consequatur alias non reprehenderit.{{age}}</p>
+  </div>
+</div>
+
+<div class="bg-dark text-white p-4 w-30 mt-3">
+  <div class="row">
+    <div class="col-3">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+        <label for="name"> Name: </label>
+        <input type="text" name="name" id="name" placeholder="pls input your name" [formControl]="name"/>
+
+        <label for="name"> Age: </label>
+        <input type="text" name="age" id="age" placeholder="pls input your age" [(ngModel)]="age"/>
+      <button type="submit">Click me</button>
+      </form>
+    </div>
+    <div class="col-9">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad impedit voluptatem dolores quos natus repellendus autem tenetur
+         cum saepe perferendis laudantium voluptate sequi,
+        maiores fugiat dignissimos molestias quibusdam fugit nulla.</p>
+
+    </div>
+  </div>
+</div>
+
+

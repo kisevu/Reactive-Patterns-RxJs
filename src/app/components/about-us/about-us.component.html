@@ -1,0 +1,23 @@
+
+<div class="container">
+  <div>
+    <h3 class="text-white text-muted">Native CSS Encapsulation - Native</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae officiis odit sapiente?
+      Quidem modi aspernatur voluptas deserunt eveniet? Laborum
+      nemo corporis debitis molestiae, architecto nisi sapiente animi accusamus sequi odit.</p>
+   <div>Message from God:  {{message}}</div>
+  </div>
+
+  <div class="section">
+    @for (recipe of recipes; track $index) {
+      <p>{{recipe.title}}<span class="px-2">{{recipe.description}}</span></p>
+      <button class="btn btn-success" (click)="editRecipe(recipe)">select dish</button>
+    }
+    @empty {
+      <p>No list to display my guy</p>
+    }
+
+
+
+  </div>
+</div>

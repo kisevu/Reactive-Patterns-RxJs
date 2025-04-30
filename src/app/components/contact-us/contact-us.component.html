@@ -1,0 +1,24 @@
+<div class="container" appPopup  message="first header"   #popUp1="appPopup">
+  <p >This component uses the Pop up Directive</p>
+</div>
+
+<div class="container" appPopup message="second header" #popUp2="appPopup">
+  <p >This component uses the Pop up Directive</p>
+</div>
+
+
+<div class="container">
+
+  <button (click)="popUp1.displayMesaage()">
+    Display Popup  for click event
+  </button>
+
+  <button (mouseover,onFocus)="popUp2.hoverMessage()">
+    Display Popup for moveOver
+  </button>
+</div>
+
+
+
+
+<app-contact></app-contact>

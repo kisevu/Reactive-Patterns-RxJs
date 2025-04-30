@@ -1,0 +1,10 @@
+
+<div class="product-card" (click|onKeyDown)="cardClicking()" [style.color]="'#fff'" [style.background-color]="'black'"
+[ngStyle]="{'width':'150%'}">
+      <img src="{{product.image}}" alt="product rep"/>
+      <div [style.text-decoration]="'underline'"  class="wordings">
+        <h3 [ngStyle]="{'font-style':'italic','text-wrap':'break-word'}" class="text-break">{{product.name}}</h3>
+        <p class="text-break">{{product.description}}</p>
+      </div>
+  </div>
+

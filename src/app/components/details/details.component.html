@@ -1,0 +1,10 @@
+
+<div class="container">
+  <p>Here this component demonstrates sharing data between components Reactively without any relations between those components</p>
+  @if (selectedRecipe$ | async; as recipe) {
+    <div class="section">
+      <span>{{recipe.title}}</span>
+      <span>{{recipe.description}}</span>
+    </div>
+  }
+</div>

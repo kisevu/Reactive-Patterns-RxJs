@@ -1,0 +1,36 @@
+.container {
+  margin: 0 auto;
+  max-width: 1080px;
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns: 0.6fr 2fr;
+  grid-template-rows: 1fr;
+  grid-gap: 10px;
+}
+
+
+.container > * {
+padding:  20px;
+}
+
+.container > .header {
+  background-color: aqua;
+}
+
+.container > .paragraph {
+  background-color: blueviolet;
+}
+
+
+
+.changeContainerBg {
+  background-color: brown;
+  color: blueviolet;
+  font-family: monospace;
+}
+
+.changeTextToBlack {
+  /* color: black; */
+  font-style: var(--fontStyle);
+}

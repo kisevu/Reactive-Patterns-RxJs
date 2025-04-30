@@ -1,0 +1,9 @@
+div {
+  border-radius: 20px;
+}
+
+
+
+div + div > .row {
+border-radius: 20px;
+}
