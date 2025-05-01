@@ -9,7 +9,7 @@
   </div>
 
   <div class="section">
-    @for (recipe of recipes; track $index) {
+    @for (recipe of recipesAsSignal(); track $index) {
       <p>{{recipe.title}}<span class="px-2">{{recipe.description}}</span></p>
       <button class="btn btn-success" (click)="editRecipe(recipe)">select dish</button>
     }

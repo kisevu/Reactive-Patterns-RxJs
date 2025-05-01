@@ -4,6 +4,8 @@ import { Recipe } from '../../models/recipe.model';
 import { SharedDataService } from '../../services/shared/shared-data.service';
 import { Router } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
+import { of } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-about-us',
@@ -26,8 +28,13 @@ export class AboutUsComponent {
 
   selectedRecipe$ = this.sharedDataService.selectedRecipe$;
 
-
   recipes: Recipe [] = [];
+
+
+  recipes$ = of(this.recipes);
+
+  recipesAsSignal  = toSignal(this.recipes$, {initialValue: [] as Recipe []});
+
 
 
   constructor(){
@@ -49,6 +56,8 @@ export class AboutUsComponent {
     }
 
   );
+
+
   }
 
 
