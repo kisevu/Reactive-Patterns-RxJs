@@ -3,9 +3,9 @@
   <p>Here this component demonstrates sharing data between components Reactively without any relations between those components.
     No parent child or nothing as opposed to the Output() and Input() directives
   </p>
-  @if (selectedRecipe$ | async; as recipe) {
+  @if (selectedRecipes(); as recipe) {
     <div class="section">
-      <span>{{recipe.title}}</span>
+      <span>{{recipe.title}}</span> ---
       <span>{{recipe.description}}</span>
     </div>
   }
@@ -34,3 +34,10 @@
 <h2>Working with toSignal() and toObservable() in angular/core/rxjs-interop</h2>
 <p>Result from toSignal - {{valuesAsSignal()}}</p>
 </div>
+
+
+<!-- <div class="container mt-2">
+  <h2>Sharing data through the signal thing between components</h2>
+  <p>{{selectedRecipeSignal().title}}</p>
+  <p>{{selectedRecipeSignal().description}}</p>
+</div> -->

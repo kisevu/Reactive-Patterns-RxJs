@@ -44,5 +44,7 @@ Data Sharing Reactive Pattern
 
 
 
+   * In the above we have used observables, so let's see how to categorically use signals for sharing data between components
+
 
 */

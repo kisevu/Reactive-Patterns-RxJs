@@ -24,6 +24,7 @@ export class NavigationListComponent {
       new Navigation("Help","help"),
       new Navigation("music","music"),
       new Navigation("bootstrap","bootstrap"),
+      new Navigation("filtering","filtering with signals")
     ];
   }
 

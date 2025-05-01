@@ -9,6 +9,7 @@ import { MasterComponent } from './components/master/master.component';
 import { MusicComponent } from './components/music/music.component';
 import { BootstrapComponent } from './components/bootstrap/bootstrap.component';
 import { DetailsComponent } from './components/details/details.component';
+import { FilteringsWithSignalsComponent } from './components/filterings-with-signals/filterings-with-signals.component';
 
 export const routes: Routes = [
   /* my navigation routes goes here */
@@ -60,6 +61,11 @@ export const routes: Routes = [
   {
     path: 'details',
     component: DetailsComponent
+  },
+
+  {
+    path: 'filtering',
+    component: FilteringsWithSignalsComponent
   }
 
 ];

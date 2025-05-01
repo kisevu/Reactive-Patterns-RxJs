@@ -5,6 +5,7 @@ import { Recipe } from '../../models/recipe.model';
 import { BehaviorSubject, delay, of, tap } from 'rxjs';
 
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { SignalShareService } from '../../services/signal-shared/signal-share.service';
 
 @Component({
   selector: 'app-details',
@@ -17,10 +18,14 @@ export class DetailsComponent implements OnInit {
 
 
   sharedDataService = inject(SharedDataService);
+  signalSharedService = inject(SignalShareService);
 
   selectedRecipe$ = this.sharedDataService.selectedRecipe$;
+  selectedRecipes = this.signalSharedService.selectedRecipe;
 
   counter = signal(0);
+
+
 
 
 
