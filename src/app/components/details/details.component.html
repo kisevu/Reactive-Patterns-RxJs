@@ -1,10 +1,30 @@
 
 <div class="container">
-  <p>Here this component demonstrates sharing data between components Reactively without any relations between those components</p>
+  <p>Here this component demonstrates sharing data between components Reactively without any relations between those components.
+    No parent child or nothing as opposed to the Output() and Input() directives
+  </p>
   @if (selectedRecipe$ | async; as recipe) {
     <div class="section">
       <span>{{recipe.title}}</span>
       <span>{{recipe.description}}</span>
     </div>
   }
+
+  @for (currency of currencies(); track $index) {
+    <option>{{currency}}</option>
+  } @empty {
+    <div>No currencies </div>
+  }
+
+  <div>{{recipes().title}} <->  {{recipes().description}}</div>
+</div>
+
+
+<div class="container mt-2">
+  <h2>Working with Signal effects</h2>
+  <p>Functions that execute in response to Signal Changes. Provide us with a way to perform,
+    side effects  such as loggging, or manipulating DOM for custom rendering or behavior.
+  </p>
+  <p>Result {{counter()}}</p>
+  <button class="btn btn-primary" (click)="update()">update</button>
 </div>
