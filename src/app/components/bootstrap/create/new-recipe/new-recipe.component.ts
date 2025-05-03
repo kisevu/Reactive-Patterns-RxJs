@@ -39,6 +39,17 @@ export class NewRecipeComponent{
   }
 
 
+  /*
+   * concatMap = >  ensures operations are processed sequentially, each observable is processed
+   one at a time and in order. Using concatMap() is good to ensure that inner observable completes
+   since concatMap() waits  for the completion of each inner Observable before subscribing to the next
+   one in the sequence.
+
+   * switchMap = > only focuses on the latest/ most recent data ,ensuring that only the latest  updates  are processed
+    while cancelling any ongoing operations triggered by previous data. This one works like changing TV channels
+
+  */
+
 
 
 }
