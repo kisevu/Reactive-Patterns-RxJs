@@ -6,7 +6,7 @@
 
   <app-filter-recipe></app-filter-recipe>
 
-  @if (filteredRecipes$ | async; as recipes) {
+  @if (filteredSignalRecipes(); as recipes) {
     <div>{{recipes.length}} Results </div>
 
       <table class="table table-bordered table-stripped">

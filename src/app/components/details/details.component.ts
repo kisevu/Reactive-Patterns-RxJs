@@ -2,10 +2,11 @@ import { Component, inject, signal, OnInit, computed, effect } from '@angular/co
 import { SharedDataService } from '../../services/shared/shared-data.service';
 import { AsyncPipe } from '@angular/common';
 import { Recipe } from '../../models/recipe.model';
-import { BehaviorSubject, delay, of, tap } from 'rxjs';
+import { BehaviorSubject, delay, of, pipe, tap } from 'rxjs';
 
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { SignalShareService } from '../../services/signal-shared/signal-share.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -16,16 +17,14 @@ import { SignalShareService } from '../../services/signal-shared/signal-share.se
 })
 export class DetailsComponent implements OnInit {
 
-
   sharedDataService = inject(SharedDataService);
   signalSharedService = inject(SignalShareService);
+  router = inject(Router);
 
   selectedRecipe$ = this.sharedDataService.selectedRecipe$;
   selectedRecipes = this.signalSharedService.selectedRecipe;
 
   counter = signal(0);
-
-
 
 
 
@@ -42,6 +41,8 @@ export class DetailsComponent implements OnInit {
    conjoined = computed( ()=> `${this.firstName()} ${this.secondName()}` );
 
 
+   data$ = of(10,20,30).pipe(delay(5));
+   dataAsSignal = toSignal(this.data$, {initialValue: 0});
 
    ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -57,21 +58,11 @@ export class DetailsComponent implements OnInit {
     //   console.log('The updated value is ', this.counter());
     // });
       // effect( ()=> console.log(this.valuesAsSignal()) );
-
-      this.value.asObservable().pipe(
-        tap(x => console.log(`The value is: ${x}`))
-      ).subscribe();
-
-      this.value.next(20);
-      this.value.next(30);
-
       toObservable(this.value2).pipe(
-        tap(x=>console.log(`The value 2 is : ${x}`))
+        tap( x => console.log(x))
       ).subscribe();
-
       this.value2.set(20);
       this.value2.set(30);
-
    }
 
 
@@ -83,6 +74,11 @@ export class DetailsComponent implements OnInit {
    value = new BehaviorSubject(10);
 
    value2 = signal(10);
+
+
+   about() {
+    this.router.navigate(['/about']);
+    }
 
 
    /*

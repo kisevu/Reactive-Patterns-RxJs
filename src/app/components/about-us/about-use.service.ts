@@ -12,9 +12,7 @@ export class AboutUsService{
 
 recipes: Recipe [] = [];
 
-
 recipes$ = of(this.recipes);
-
 
 constructor(){
 

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 
 import { combineLatest, from, map, mergeMap, Observable } from 'rxjs';
 import { BootstrapService } from './services/bootstrap.service';
@@ -55,6 +55,22 @@ export class BootstrapComponent {
       );
     })
   );
+
+  /* signal version of the filter solution */
+
+
+
+  signalRecipes =  this.bootstrapService.recipesSignal;
+  recipesFilter = this.bootstrapService.filteRecipeSignal;
+
+
+  filteredSignalRecipes =computed( ()=> {
+    const filterTitle = this.recipesFilter()?.title?.toLowerCase() ?? '';
+    const filterCategory = this.recipesFilter()?.category?.toLowerCase() ?? '';
+    return this.signalRecipes().filter(recipe => recipe.title?.toLowerCase().includes(filterTitle) &&
+    recipe.category?.toLowerCase().includes(filterCategory)
+    );
+  })
 
    constructor(){
    }

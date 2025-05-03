@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
 import { BehaviorSubject, map, Observable, of } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,10 @@ export class BootstrapService {
 
 
   recipes: Recipe [] = [];
-  recipes$: Observable<Recipe[]>;
+  recipes$: Observable<Recipe[]> = this.loadRecipes();
 
   constructor() {
-   this.recipes$ =  this.loadRecipes();
+  //  this.recipes$ =  this.loadRecipes();
   }
 
   private  readonly filterRecipeSubject = new BehaviorSubject<Recipe>({title:'', category: ''});
@@ -83,6 +84,21 @@ export class BootstrapService {
 
   ]);
   }
+
+
+   /* Filtering using Signals */
+
+   recipesSignal = toSignal(this.recipes$, {initialValue: [] as Recipe []})
+
+   filteRecipeSignal = signal({title:'',category:''} as Recipe)
+
+
+   updateFilterSignal(criteria: Recipe){
+    this.filteRecipeSignal.set(criteria);
+   }
+
+
+
 
 
 }
