@@ -14,7 +14,7 @@ export class BootstrapService {
    this.recipes$ =  this.loadRecipes();
   }
 
-  private  readonly filterRecipeSubject = new BehaviorSubject<Recipe>({title:''});
+  private  readonly filterRecipeSubject = new BehaviorSubject<Recipe>({title:'', category: ''});
 
   filterRecipesAction$ = this.filterRecipeSubject.asObservable();
 
@@ -33,7 +33,8 @@ export class BootstrapService {
       Take the simmered rice and mix, you've got your Pilau
       `,
       numberOfPeople: 3,
-      time: ' 10 minutes'
+      time: ' 10 minutes',
+      category: 'starch'
     },
 
     {
@@ -44,7 +45,8 @@ export class BootstrapService {
        Leave to rest. Take the dough and roll to make flat rounded tops and cook on
        pan with little bit of oil to make them appear as tortillers`,
       numberOfPeople: 5,
-      time: '15 mins'
+      time: '15 mins',
+      category: 'starch'
     },
     {
       title: 'Oven roast Chicken',
@@ -55,7 +57,8 @@ export class BootstrapService {
       smoked.
       `,
       numberOfPeople: 4,
-      time: '5 mins'
+      time: '5 mins',
+      category: 'protein'
     },
 
     {
@@ -65,7 +68,8 @@ export class BootstrapService {
       Toase onions and brownen them, sprinkle a little bit of corriander and herbs and leave them for
       2 mins. Toase the potatoes and the brownen onions and serve`,
       numberOfPeople: 3,
-      time: '2 mins'
+      time: '2 mins',
+      category: 'starch'
     }
 
   ]);

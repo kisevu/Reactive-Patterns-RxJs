@@ -19,7 +19,8 @@ export class FilterRecipeComponent {
     title: '',
     description: '',
     numberOfPeople: undefined,
-    time: undefined
+    time: undefined,
+    category: ''
   });
 
 

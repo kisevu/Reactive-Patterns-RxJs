@@ -46,15 +46,13 @@ export class BootstrapComponent {
   ]).pipe(
     map(([recipes, filter]: [Recipe[], Recipe]) => {
       const filterTitle = filter?.title?.toLowerCase() ?? '';
+      const filterCategory = filter?.category?.toLowerCase() ?? '';
       return recipes.filter(recipe =>
-        recipe.title?.toLowerCase().includes(filterTitle)
+        recipe.title?.toLowerCase().includes(filterTitle) && recipe.category?.toLowerCase().includes(filterCategory)
       );
     })
   );
 
    constructor(){
-    // this.filteredRecipes$.pipe(
-    //   mergeMap(data => from(data))
-    // ).subscribe(console.log);
    }
 }

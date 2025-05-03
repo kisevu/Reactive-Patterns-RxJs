@@ -6,7 +6,7 @@
 
   <app-filter-recipe></app-filter-recipe>
 
-  @if (filteredRecipes$  | async; as recipes) {
+  @if (filteredRecipes$ | async; as recipes) {
     <div>{{recipes.length}} Results </div>
 
       <table class="table table-bordered table-stripped">
@@ -15,20 +15,20 @@
           <th>Description</th>
           <th>No. people</th>
           <th>Time</th>
+          <th>Category</th>
         </tr>
 
-        <!-- <p-dataView #dv [value]="recipes" [paginator]="true" [rows]="9" filterBy="name" layout="grid"> -->
           @for (recipe of recipes ; track recipe) {
             <tr>
               <td>{{recipe.title}}</td>
               <td class="colspan">{{recipe.description}}</td>
               <td>{{recipe.numberOfPeople}}</td>
               <td>{{recipe.time}}</td>
+              <td>{{recipe.category}}</td>
             </tr>
           } @empty {
             <p>No data in the table to de displayed.</p>
           }
-        <!-- </p-dataView> -->
       </table>
 
   } @else {

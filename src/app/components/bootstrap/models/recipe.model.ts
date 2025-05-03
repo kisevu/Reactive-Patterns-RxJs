@@ -6,4 +6,5 @@ export interface Recipe {
   description?: string;
   numberOfPeople?: number;
   time?: string;
+  category?: string;
 }
