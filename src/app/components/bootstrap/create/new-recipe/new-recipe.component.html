@@ -1,0 +1,38 @@
+<!-- <ng-container *ngIf="valueChanges$ | async"></ng-container> -->
+
+<div *ngIf=" valueChanges$ | async "></div>
+<div class="container">
+  <h2 class="py-3">Create New Recipe</h2>
+
+  <form [formGroup]="newRecipeForm">
+
+    <div class="row">
+
+      <div class="col-4">
+        <label class="px-2" for="title">Title:</label>
+        <input type="text" name="title" formControlName="title"/>
+      </div>
+
+      <div class="col-4">
+        <label class="px-2" for="description">Description:</label>
+        <input type="text" name="description" formControlName="description"/>
+      </div>
+
+      <div class="cpl-4">
+        <label class="px-2" for="numberOfPeople">No. People(s):</label>
+        <input type="number"  name="numberOfPeople" formControlName="numberOfPeople"/>
+      </div>
+
+      <div class="col-4">
+        <label class="px-2" for="time">Time:</label>
+        <input type="text"  name="time" formControlName="time"/>
+      </div>
+
+      <div class="col-4">
+        <label class="px-2" for="category">Category:</label>
+        <input type="text" name="category" formControlName="category"/>
+      </div>
+
+    </div>
+  </form>
+</div>

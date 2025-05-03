@@ -14,11 +14,14 @@ import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
+import { NewRecipeComponent } from "./create/new-recipe/new-recipe.component";
 
 @Component({
   selector: 'app-bootstrap',
   standalone: true,
-  imports: [AsyncPipe, FilterRecipeComponent,
+  imports: [
+    AsyncPipe,
+    FilterRecipeComponent,
     CommonModule,
     DataViewModule,
     PanelModule,

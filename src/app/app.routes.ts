@@ -10,6 +10,7 @@ import { MusicComponent } from './components/music/music.component';
 import { BootstrapComponent } from './components/bootstrap/bootstrap.component';
 import { DetailsComponent } from './components/details/details.component';
 import { FilteringsWithSignalsComponent } from './components/filterings-with-signals/filterings-with-signals.component';
+import { NewRecipeComponent } from './components/bootstrap/create/new-recipe/new-recipe.component';
 
 export const routes: Routes = [
   /* my navigation routes goes here */
@@ -66,6 +67,10 @@ export const routes: Routes = [
   {
     path: 'filtering',
     component: FilteringsWithSignalsComponent
+  },
+  {
+    path: 'new-recipe',
+    component: NewRecipeComponent
   }
 
 ];

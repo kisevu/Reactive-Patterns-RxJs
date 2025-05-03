@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, map, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BootstrapService {
+
 
   recipes: Recipe [] = [];
   recipes$: Observable<Recipe[]>;
@@ -21,6 +22,14 @@ export class BootstrapService {
 
   updateFilter(criteria: Recipe){
     this.filterRecipeSubject.next(criteria);
+  }
+
+
+  saveRecipe(formValue: Recipe): Observable<Recipe>{
+    this.recipes.push(formValue);
+    this.recipes$ = of(this.recipes);
+    console.log(`This function has been hit.`);
+    return of(formValue);
   }
 
   loadRecipes(): Observable<Recipe []> {

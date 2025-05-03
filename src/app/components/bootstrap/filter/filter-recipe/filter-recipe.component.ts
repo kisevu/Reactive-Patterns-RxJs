@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { BootstrapService } from '../../services/bootstrap.service';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Recipe } from '../../models/recipe.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-filter-recipe',
@@ -12,7 +13,10 @@ import { Recipe } from '../../models/recipe.model';
 })
 export class FilterRecipeComponent {
 
-   constructor(private readonly bootstrapService:BootstrapService, private readonly fb: FormBuilder){}
+
+   constructor(private readonly bootstrapService:BootstrapService, private readonly fb: FormBuilder,
+    private readonly router:Router
+   ){}
 
 
    recipeForm = this.fb.group<Recipe>({
@@ -34,5 +38,9 @@ export class FilterRecipeComponent {
   window.location.reload();
    }
 
+
+   saveRecipe() {
+    this.router.navigate(['/new-recipe'])
+    }
 
 }
