@@ -1,12 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+
+import { combineLatest, from, map, mergeMap, Observable } from 'rxjs';
+import { BootstrapService } from './services/bootstrap.service';
+import { AsyncPipe, CommonModule } from '@angular/common';
+import { Recipe } from './models/recipe.model';
+import { FilterRecipeComponent } from "./filter/filter-recipe/filter-recipe.component";
+import { DataViewModule } from 'primeng/dataview';
+import { PanelModule } from 'primeng/panel';
+import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
+import { RatingModule } from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-bootstrap',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe, FilterRecipeComponent,
+    CommonModule,
+    DataViewModule,
+    PanelModule,
+    DialogModule,
+    DropdownModule,
+    InputTextModule,
+    ButtonModule,
+    RippleModule,
+    RatingModule, FormsModule],
   templateUrl: './bootstrap.component.html',
   styleUrl: './bootstrap.component.css'
 })
 export class BootstrapComponent {
 
+
+  bootstrapService = inject(BootstrapService);
+
+  recipes$ = this.bootstrapService.recipes$
+
+  filterRecipeActions$ =  this.bootstrapService.filterRecipesAction$;
+
+  filteredRecipes$ = combineLatest([
+    this.recipes$,
+    this.filterRecipeActions$
+  ]).pipe(
+    map(([recipes, filter]: [Recipe[], Recipe]) => {
+      const filterTitle = filter?.title?.toLowerCase() ?? '';
+      return recipes.filter(recipe =>
+        recipe.title?.toLowerCase().includes(filterTitle)
+      );
+    })
+  );
+
+   constructor(){
+    // this.filteredRecipes$.pipe(
+    //   mergeMap(data => from(data))
+    // ).subscribe(console.log);
+   }
 }

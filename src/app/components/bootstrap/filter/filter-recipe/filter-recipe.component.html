@@ -1,0 +1,24 @@
+
+
+<div class="rp-data-view">
+  <form [formGroup]="recipeForm">
+      <fieldset class="rp-filters-group">
+          <legend>Filters</legend>
+          <div class="rp-filter-button">
+              <button  class="my-3" (click)="clearFilters()" label="Clear all"> clear All</button>
+          </div>
+          <label for="title">Title:</label>
+          <input type="text" id="title" formControlName="title">
+          <label for="category">description:</label>
+          <input type="text" id="description" formControlName="description">
+          <label for="ingredient">No.of People:</label>
+          <input type="text" id="numberOfPeople" formControlName="numberOfPeople">
+          <label for="text">Time:</label>
+          <input type="text" id="time" formControlName="time">
+          <div class="rp-filter-button">
+              <button class="my-3 rp-filter-button" (click)="filterResults()" label="See
+               results"> See Results</button>
+          </div>
+      </fieldset>
+  </form>
+</div>
