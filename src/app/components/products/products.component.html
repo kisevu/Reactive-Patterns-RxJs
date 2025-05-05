@@ -1,2 +1,28 @@
 
 <app-product-list></app-product-list>
+
+
+<div class="container">
+  <h2>Boosting performance with Reactive caching</h2>
+  <h3>shareReplay RxJs operator</h3>
+  <table class="table table-bordered table-success">
+    <tr>
+      <th class="col">Name:</th>
+      <th>Description:</th>
+      <th>Quantity:</th>
+      <th>Price:</th>
+    </tr>
+  </table>
+
+  @for (product of products$ | async ; track product) {
+    <tr>
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.quantity}}</td>
+      <td>{{product.price}}</td>
+    </tr>
+  }
+  <tr>
+    <td>completed</td>
+  </tr>
+</div>

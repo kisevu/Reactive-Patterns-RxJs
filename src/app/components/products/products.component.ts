@@ -1,12 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ProductListComponent } from "../product-list/product-list.component";
-import { Observable, Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { error } from 'jquery';
+import { ProductsService } from './services/products.service';
+import { Product } from '../product/product.model';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [ProductListComponent],
+  imports: [ProductListComponent,AsyncPipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
@@ -38,9 +41,10 @@ export class ProductsComponent implements OnInit {
   * - BehaviorSubject - BehaviorSubject(); - no subscription worry but under condition that you will only get lastest emission.
   */
 
+  service= inject(ProductsService);
 
 
-
+  products$ = this.service.products$;
 
   ngOnInit(): void {
   }
