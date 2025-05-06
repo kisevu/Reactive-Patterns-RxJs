@@ -93,8 +93,6 @@ export class ProductsService {
 
 
 
-
-
   loadProducts(): Observable<Product[]> {
     this.products =  [
       {

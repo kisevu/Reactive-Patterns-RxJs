@@ -1,17 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Testimony } from '../../models/testimony.model';
 import { TestimonyComponent } from '../testimony/testimony.component';
+import { BulkService } from './bulk-operations/services/bulk.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-testimonials',
   standalone: true,
-  imports: [TestimonyComponent],
+  imports: [TestimonyComponent,AsyncPipe],
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.css'
 })
 export class TestimonialsComponent {
 
   testimonials: Testimony [];
+
+  bulkService = inject(BulkService);
+
+  images$ = this.bulkService.images$;
 
   message: string;
 

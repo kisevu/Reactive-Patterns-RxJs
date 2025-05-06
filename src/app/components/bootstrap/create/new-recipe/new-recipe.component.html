@@ -4,22 +4,22 @@
 <div class="container">
   <h2 class="py-3">Create New Recipe</h2>
 
-  <form [formGroup]="newRecipeForm">
+  <form [formGroup]="newRecipeForm" ngModel="newRecipeForm.value">
 
     <div class="row">
 
       <div class="col-4">
-        <label class="px-2" for="title">Title:</label>
+        <label class="px-2 py-2" for="title">Title:</label>
         <input type="text" name="title" formControlName="title"/>
       </div>
 
       <div class="col-4">
-        <label class="px-2" for="description">Description:</label>
+        <label class="px-2 py-2" for="description">Description:</label>
         <input type="text" name="description" formControlName="description"/>
       </div>
 
       <div class="cpl-4">
-        <label class="px-2" for="numberOfPeople">No. People(s):</label>
+        <label class="px-2 py-2" for="numberOfPeople">No. People(s):</label>
         <input type="number"  name="numberOfPeople" formControlName="numberOfPeople"/>
       </div>
 
@@ -31,6 +31,11 @@
       <div class="col-4">
         <label class="px-2" for="category">Category:</label>
         <input type="text" name="category" formControlName="category"/>
+      </div>
+
+      <div class="col-4">
+        <label class="px-2" for="imageUrl">upload</label>
+            <input type="file" [multiple]=true (onload)="onUpload($event.files)" name="imageUrl" id="imageUrl"/>
       </div>
 
     </div>

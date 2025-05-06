@@ -1,6 +1,6 @@
-import { Component, computed, inject } from '@angular/core';
-
-import { combineLatest, from, map, mergeMap, Observable } from 'rxjs';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { webSocket } from 'rxjs/webSocket';
+import { combineLatest, from, map, mergeMap, Observable, } from 'rxjs';
 import { BootstrapService } from './services/bootstrap.service';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Recipe } from './models/recipe.model';
@@ -32,7 +32,8 @@ import { NewRecipeComponent } from "./create/new-recipe/new-recipe.component";
     RippleModule,
     RatingModule, FormsModule],
   templateUrl: './bootstrap.component.html',
-  styleUrl: './bootstrap.component.css'
+  styleUrl: './bootstrap.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BootstrapComponent {
 
@@ -42,6 +43,8 @@ export class BootstrapComponent {
   recipes$ = this.bootstrapService.recipes$
 
   filterRecipeActions$ =  this.bootstrapService.filterRecipesAction$;
+
+  subject$ = webSocket({url:'ws://localhost:3535'});
 
   filteredRecipes$ = combineLatest([
     this.recipes$,
@@ -73,5 +76,6 @@ export class BootstrapComponent {
   })
 
    constructor(){
+    this.subject$.subscribe();
    }
 }

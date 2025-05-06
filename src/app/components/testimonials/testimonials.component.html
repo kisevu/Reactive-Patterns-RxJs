@@ -3,3 +3,20 @@
   <app-testimony [testimony]="testimony"></app-testimony>
 }
 
+
+
+<div class="container">
+  <label for="imageUrl">imageUrl:</label>
+  <input type="file"/>
+  <button class="btn btn-success">upload</button>
+</div>
+
+<div class="container">
+  @for (img of images$ | async ; track img.id) {
+    <div class="card">
+      <h3>{{img.title}} | {{img.id}}</h3>
+      <img src="{{img.url}}" alt="{{img.alt}}"/>
+    </div>
+  }
+</div>
+

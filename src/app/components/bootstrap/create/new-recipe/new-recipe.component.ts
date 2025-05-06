@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Recipe } from '../../models/recipe.model';
 import { BootstrapService } from '../../services/bootstrap.service';
-import { catchError, concatMap, of, tap } from 'rxjs';
+import { BehaviorSubject, catchError, concatMap, forkJoin, of, switchMap, tap, pipe } from 'rxjs';
+import { BulkService } from '../../../testimonials/bulk-operations/services/bulk.service';
 
 @Component({
   selector: 'app-new-recipe',
@@ -13,8 +14,7 @@ import { catchError, concatMap, of, tap } from 'rxjs';
   styleUrl: './new-recipe.component.css'
 })
 export class NewRecipeComponent{
-
-
+  bulkService = inject(BulkService);
   constructor(private readonly fb: FormBuilder, private readonly bootstrapService: BootstrapService){
   }
 
@@ -52,6 +52,23 @@ export class NewRecipeComponent{
     to every inner Observable  at the same time and outputs the valus of combined  result.
 
   */
+
+
+    uploadFilesSubject$ =  new BehaviorSubject<File[]>([]);
+    uploadRecipeImages$ =   this.uploadFilesSubject$.pipe(
+      switchMap( uploadedFiles => forkJoin(
+        uploadedFiles.map((file:File) => 
+        this.bulkService.upload(
+          this.newRecipeForm.value.id,file)
+          // .pipe(
+          //   catchError(errors => of(errors))
+          // )
+        )))
+    )
+
+    onUpload(files:File[]) {
+      this.uploadFilesSubject$.next(files);
+    }
 
 
 
